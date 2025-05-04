@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Home{% endblock %}</title>
+    {% block miCSS %} <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> {% endblock %} 
+</head>
+<body>
+    {% block cuerpo %}
+    <div class="container mt-5">
+        <h1>Admin Page</h1>
+        <p>Welcome to the admin page!</p>
+        <h1>{{ current_user.fullname }}</h1>
+        <a class="btn btn-danger" href="{{ url_for('logout') }}" >LogOut</a> 
+
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Go to Home</a>
+    {% endblock %} 
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% extends './base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Login{% endblock %}</title>
+    {% block miCSS %} <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> {% endblock %} 
+</head>
+<body>
+    {% block cuerpo %} 
+    <!--<h1>Logo</h1> -->
+    <section class="vh-100">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6 text-black">
+              
+              <div class="px-5 ms-xl-4">
+                <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+                <img src="{{url_for('static',filename='imgs/LogoCarro.png')}}" alt="Logo carro" style="width: 50%; height: 10%;">
+              </div>
+              
+              <div class="d-flex align-items-center h-custom-1 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+      
+                <form action="/login" method="POST" style="width: 23rem;">
+      
+                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form2Example18" class="form-control form-control-lg" placeholder="Enter a valid username" name="username" required/>
+                    <label class="form-label" for="form2Example18">Username</label>
+                  </div>
+      
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="Enter password" name="password" required/>
+                    <label class="form-label" for="form2Example28">Password</label>
+                  </div>
+      
+                  <div class="pt-1 mb-4">
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="button">Login</button>
+                  </div>
+      
+                  <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
+                  <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+      
+                </form>
+      
+              </div>
+      
+            </div>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+              <img src="../../static/imgs/PortadaCarros.jpeg" alt="Car image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+          <ul> 
+            {% for message in messages %} 
+              <li class="alert alert-warning">{{ message }}</li> 
+            {% endfor %} 
+          </ul> 
+        {% endif %} 
+      {% endwith %} 
+
+    {% endblock %} 
+    
+</body>
+</html>

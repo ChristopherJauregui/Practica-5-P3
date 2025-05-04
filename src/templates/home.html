@@ -1,0 +1,19 @@
+{% extends './base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Home{% endblock %}</title>
+    {% block miCSS %} <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> {% endblock %} 
+</head>
+{% block cuerpo %}
+<body id="home">
+    <h3>Mensaje de prueba Estoy en Home</h3>
+    <h1>{{ current_user.fullname }}</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam doloribus dicta itaque eum doloremque eligendi totam atque dolorem a earum sint unde, ea voluptates alias, nemo aut, repellat eius soluta.</p>
+    <a class="btn btn-danger" href="{{ url_for('logout') }}" >LogOut</a> 
+
+</body>
+{% endblock %} 
+</html>
